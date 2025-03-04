@@ -1,10 +1,11 @@
 import sql from './sql';
 
 interface FileInfo {
-    id: string,
-    name: string,
-    mimetype: string,
-    path: string
+    id?: string,
+    name?: string,
+    mimetype?: string,
+    size?: number,
+    path?: string
 }
 
 const fileColumns: any[] = ['id', 'name', 'mimetype', 'size', 'path']
@@ -21,7 +22,7 @@ export async function getAllFile(): Promise<[FileInfo]> {
 export async function getByID(fileID: string): Promise<[FileInfo]> {
     const result = await sql<[FileInfo]>`
         SELECT ${sql(fileColumns)} FROM file
-        WHERE id = '${fileID}'
+        WHERE id = ${fileID}
     `;
 
     return result;

@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const sql = postgres('postgres://username:password@host:port/database', {
+const sql = postgres({
     host                 : process.env.DB_HOST || 'localhost',            // Postgres ip address[s] or domain name[s]
     port                 : 5432,          // Postgres server port[s]
     database             : process.env.DB_NAME || 'simple_file_server_db',            // Name of database to connect to

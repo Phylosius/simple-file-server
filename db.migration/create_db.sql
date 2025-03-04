@@ -8,5 +8,6 @@ CREATE TABLE file(
     id VARCHAR PRIMARY KEY,
     name VARCHAR,
     mimetype VARCHAR,
+    size BIGINT,
     path VARCHAR
 );
