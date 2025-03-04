@@ -1,13 +1,15 @@
 import express, { Express, Request, Response } from 'express';
+import file_route from './routes/files';
+import ping_route from './routes/ping';
+
+const PORT = 5000;
 
 const app: Express = express();
 
-app.get('/ping', (rq: Request, rs: Response)=> {
-    rs.send("pong");
-})
+app.use('/files', file_route);
+app.use('/ping', ping_route);
 
-const port = 5000;
-app.listen(port, ()=>{
-    console.log(`Server listening on port ${port}`);
+app.listen(PORT, ()=>{
+    console.log(`Server listening on port ${PORT}`);
     
 })
