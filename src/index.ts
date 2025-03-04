@@ -1,8 +1,12 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
+import dotenv from 'dotenv';
+
 import file_route from './routes/files';
 import ping_route from './routes/ping';
 
-const PORT = 5000;
+dotenv.config();
+
+const PORT = process.env.PORT || 5000;
 
 const app: Express = express();
 

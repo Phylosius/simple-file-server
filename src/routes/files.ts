@@ -1,9 +1,12 @@
 import express, {Router, Request, Response} from 'express';
 import multer, {Multer} from 'multer';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app: Router = express.Router();
 const upload: Multer = multer({
-    dest: 'uploads/'
+    dest: process.env.UPLOADS_DIR ||'uploads/'
 })
 
 app.post('/upload', upload.single('file'), (req: Request, res: Response) => {
