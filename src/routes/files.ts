@@ -15,7 +15,7 @@ const upload: Multer = multer({
 
 route.post('/upload', upload.single('file'), (req: Request, res: Response) => {
     const file = req.file;
-    let saveStatus = 'SAVED';
+    let saveStatus = 'UNKNOW';
     
     try {
         save({id: file?.filename,
@@ -24,6 +24,7 @@ route.post('/upload', upload.single('file'), (req: Request, res: Response) => {
             path: `${UPLOADS_DIR}${file?.filename}`,
             size: file?.size
            });
+        saveStatus = 'SAVED'
     } catch (e) {
         saveStatus = "FAILED";
     }

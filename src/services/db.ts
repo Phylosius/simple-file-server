@@ -2,10 +2,12 @@ import sql from './sql';
 
 interface FileInfo {
     id?: string,
-    name?: string,
-    mimetype?: string,
-    size?: number,
-    path?: string
+    name: string,
+    mimetype: string,
+    size: number,
+    path: string,
+    created_at?: Date,
+    updated_at?: Date
 }
 
 const fileColumns: any[] = ['id', 'name', 'mimetype', 'size', 'path']
